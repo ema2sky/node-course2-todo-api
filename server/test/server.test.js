@@ -13,7 +13,7 @@ describe('POST /todos',()=>{
     it('should create a new todo',(done)=>{
         var text = 'Test todo text';
 
-        request(app)
+     request(app)
         .post('/todos')
         .send({text})
         .expect(200)
@@ -32,7 +32,7 @@ describe('POST /todos',()=>{
         });
     });
     it('should not create todo with invalid data',(done)=>{
-        request(app)
+     request(app)
         .post('/todos')
         .send({})
         .expect(400)
@@ -40,6 +40,7 @@ describe('POST /todos',()=>{
             if (err){
                 return done(err);
             }
+            
             Todo.find().then((todos)=>{
                 expect(todos.length).toBe(0);
                 done();
