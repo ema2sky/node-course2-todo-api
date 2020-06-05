@@ -53,11 +53,11 @@ app.delete('/todos/:id',(req,res)=>{
     if(!ObjectID.isValid(id)){
         return res.status(404).send();
     }
-    Todo.findByIdAndRemove(id).then((doc)=>{
+    Todo.findByIdAndRemove(id).then((todo)=>{
         if(!doc){
             return res.status(404).send();
         }
-        res.status(200).send({doc});
+        res.status(200).send({todo});
     }).catch((e)=>{
         res.status(400).send();
     });
@@ -68,4 +68,4 @@ app.listen(port,()=>{
 });
 
 module.exports={app};
-
+ 
