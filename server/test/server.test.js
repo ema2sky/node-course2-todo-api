@@ -180,7 +180,7 @@ describe('PATCH /todos/:id',()=>{
         .end(done);    
     });
 
-    it('should update the todo',(done)=>{
+    it('should not update the todo created by other user',(done)=>{
         var id = todos[1]._id.toHexString();
         var text = 'This should be the new text'
         request(app)
